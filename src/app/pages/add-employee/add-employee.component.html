@@ -1,0 +1,120 @@
+<div class="card w-full bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">
+      {{ isEditMode ? "Edit Employee" : "Add Employee" }}
+    </h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSave()">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Username</span>
+        </label>
+        <input
+          type="text"
+          formControlName="username"
+          class="input input-bordered"
+          [readonly]="isEditMode"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">First Name</span>
+        </label>
+        <input
+          type="text"
+          formControlName="firstName"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Last Name</span>
+        </label>
+        <input
+          type="text"
+          formControlName="lastName"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Email</span>
+        </label>
+        <input
+          type="email"
+          formControlName="email"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Birth Date</span>
+        </label>
+        <input
+          type="date"
+          formControlName="birthDate"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Basic Salary</span>
+        </label>
+        <input
+          type="number"
+          formControlName="basicSalary"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Status</span>
+        </label>
+        <input
+          type="text"
+          formControlName="status"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Group</span>
+        </label>
+        <select formControlName="group" class="select select-bordered" required>
+          <option *ngFor="let group of groups" [value]="group">
+            {{ group }}
+          </option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Description</span>
+        </label>
+        <input
+          type="text"
+          formControlName="description"
+          class="input input-bordered"
+          required
+        />
+      </div>
+      <div class="mt-6 flex justify-center gap-2">
+        <button class="btn btn-primary" type="submit">
+          {{ isEditMode ? "Update" : "Save" }}
+        </button>
+        <button
+          class="btn btn-secondary ml-2"
+          type="button"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

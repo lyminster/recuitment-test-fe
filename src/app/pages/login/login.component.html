@@ -1,0 +1,36 @@
+<div class="flex h-screen items-center justify-center">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body border-slate-200 border rounded-lg">
+      <h2 class="card-title">Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            class="input input-bordered"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            class="input input-bordered"
+            required
+          />
+        </div>
+        <div class="form-control mt-6">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

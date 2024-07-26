@@ -1,0 +1,78 @@
+<div class="overflow-x-auto">
+  <div class="my-4 flex items-center justify-between">
+    <div class="font-bold xl:text-4xl">
+      List Employee ( Total {{ employeeService.employeeState().length }} )
+    </div>
+    <div class="flex gap-2">
+      <button class="btn btn-primary" routerLink="/add-employee">
+        Add Employee
+      </button>
+      <button class="btn btn-warning" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  <hr />
+  <table class="table my-4 w-full">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees; track $index) {
+        <tr>
+          <td>
+            {{
+              $index +
+                employeeService.currentPage() * employeeService.totalRow() +
+                1
+            }}
+          </td>
+          <td>{{ employee.username }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td class="flex gap-2">
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="viewEmployee(employee)"
+            >
+              View
+            </button>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="editEmployee(employee)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-error btn-sm"
+              (click)="deleteEmployee(employee)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <hr />
+  <div class="mt-4 flex justify-between">
+    <div>Total Row {{ employeeService.totalRow() }}</div>
+    <div class="flex gap-1">
+      @for (item of pageNumbers; track $index) {
+        <div
+          (click)="setCurrentPage($index)"
+          [class.active]="employeeService.currentPage() === $index"
+          class="w-10 cursor-pointer rounded-md border border-slate-200 p-2 text-center"
+        >
+          {{ item }}
+        </div>
+      }
+    </div>
+  </div>
+</div>
