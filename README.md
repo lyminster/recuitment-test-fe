@@ -1,27 +1,25 @@
-# RecuitmentTestFe
+# Recuitment Test Fe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+Recuitment Test Front End using Angular
 
-## Development server
+start by clone this repository
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```console
+npm install
+```
 
-## Code scaffolding
+```console
+ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# All Feature
 
-## Build
+- Login Page (store token in localstorage)
+- Home Page (just for displaying if dashboard or widget needed)
+- list of employee
+- employee details
+- add employee
+- edit employee
+- delete employee
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+all data is store in state management using signal (another tools can be used NgRx/NgXs)
